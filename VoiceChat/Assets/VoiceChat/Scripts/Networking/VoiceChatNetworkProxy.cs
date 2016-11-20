@@ -16,8 +16,9 @@ namespace VoiceChat.Networking
         private static int localProxyId;
         private static Dictionary<int, GameObject> proxies = new Dictionary<int, GameObject>();
 
-        public bool isMine { get { return networkId != 0 && networkId == localProxyId; } }
-        
+        //public bool isMine { get { return networkId != 0 && networkId == localProxyId; } }
+        public bool isMine { get { return networkId == localProxyId; } }
+
         [SyncVar]
         private int networkId;
 

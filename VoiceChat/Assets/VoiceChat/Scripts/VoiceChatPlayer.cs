@@ -101,9 +101,13 @@ namespace VoiceChat
         {
             // Set last time we got something
             lastRecvTime = Time.time;
-            
-            packetsToPlay.Add(newPacket.PacketId, newPacket);
-
+            try
+            {
+                packetsToPlay.Add(newPacket.PacketId, newPacket);
+            }catch(Exception e)
+            {
+                Debug.Log(e.ToString());
+            }
             if (packetsToPlay.Count < 10)
             {
                 return;
@@ -144,6 +148,7 @@ namespace VoiceChat
                 // And if we have no delay set, set it.
                 if (playDelay <= 0)
                 {
+                    playbackDelay = 0.1f;
                     playDelay = (float)VoiceChatSettings.Instance.SampleTime * playbackDelay;
                 }
             }

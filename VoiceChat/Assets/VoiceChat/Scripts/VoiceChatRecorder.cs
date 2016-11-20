@@ -315,7 +315,7 @@ namespace VoiceChat
             if (NetworkId == 0 && !VoiceChatSettings.Instance.LocalDebug)
             {
                 Debug.LogError("NetworkId is not set");
-                return false;
+                //return false;
             }
 
             if (recording)
