@@ -100,14 +100,13 @@ namespace VoiceChat
         public void OnNewSample(VoiceChatPacket newPacket)
         {
             // Set last time we got something
+            // Set last time we got something
             lastRecvTime = Time.time;
-            try
-            {
-                packetsToPlay.Add(newPacket.PacketId, newPacket);
-            }catch(Exception e)
-            {
-                Debug.Log(e.ToString());
-            }
+            // Add this new line;
+            if ( packetsToPlay.ContainsKey( newPacket.PacketId ) ) return;
+ 
+            packetsToPlay.Add(newPacket.PacketId, newPacket);
+ 
             if (packetsToPlay.Count < 10)
             {
                 return;
