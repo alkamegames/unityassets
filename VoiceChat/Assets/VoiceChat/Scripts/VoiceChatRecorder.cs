@@ -312,12 +312,12 @@ namespace VoiceChat
 
         public bool StartRecording()
         {
-            if (NetworkId == 0 && !VoiceChatSettings.Instance.LocalDebug)
+         /*   if (NetworkId == 0 && !VoiceChatSettings.Instance.LocalDebug)
             {
                 Debug.LogError("NetworkId is not set");
                 //return false;
             }
-
+*/
             if (recording)
             {
                 Debug.LogError("Already recording");
